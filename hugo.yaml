@@ -1,0 +1,4 @@
+baseURL: "https://chospace.github.io/command-center/"
+title: "command center"
+languageCode: "id-ID"
+theme: "comcen"
