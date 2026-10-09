@@ -36,8 +36,8 @@ h2 { font-size: 1.4rem; font-weight: 800; margin: 2.5rem 0 1rem; }
 }
 .desk:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
 .desk .avatar { font-size: 2rem; }
-.desk .name { font-weight: 800; margin: 0.4rem 0 0.1rem; }
-.desk .role { color: var(--gray); font-size: 0.85rem; font-style: italic; }
+.desk .role { color: var(--gray); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.15rem; }
+.desk .name { font-weight: 800; font-size: 1.15rem; margin: 0 0 0.1rem; }
 .desk .status { display: inline-flex; align-items: center; gap: 0.4rem;
   font-size: 0.85rem; font-weight: 700; margin: 0.6rem 0 0.3rem; }
 .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
