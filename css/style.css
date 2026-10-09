@@ -1,0 +1,58 @@
+/* chospace aesthetic: light, minimal, typographic */
+:root {
+  --bg: #ffffff;
+  --ink: #111111;
+  --gray: #6b7280;
+  --line: #e5e7eb;
+  --green: #16a34a;
+  --yellow: #d97706;
+  --red: #dc2626;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg); color: var(--ink);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 720px; margin: 0 auto; padding: 1.5rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.wordmark { font-size: 1.4rem; color: var(--ink); text-decoration: none; }
+nav a { color: var(--gray); text-decoration: none; margin-left: 1.2rem; font-size: 0.95rem; }
+nav a:hover { color: var(--ink); }
+main { max-width: 720px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+.intro h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.intro p { color: var(--gray); font-size: 1.05rem; margin-bottom: 2.5rem; }
+h2 { font-size: 1.4rem; font-weight: 800; margin: 2.5rem 0 1rem; }
+.office-floor {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem; margin-bottom: 1rem;
+}
+.desk {
+  border: 1px solid var(--line); border-radius: 12px; padding: 1.2rem;
+  background: #fff; transition: box-shadow 0.2s;
+}
+.desk:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.desk .avatar { font-size: 2rem; }
+.desk .name { font-weight: 800; margin: 0.4rem 0 0.1rem; }
+.desk .role { color: var(--gray); font-size: 0.85rem; font-style: italic; }
+.desk .status { display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.85rem; font-weight: 700; margin: 0.6rem 0 0.3rem; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.dot.working { background: var(--green); animation: pulse 1.6s infinite; }
+.dot.idle { background: var(--yellow); }
+.dot.offline { background: #9ca3af; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.desk .activity { font-size: 0.9rem; color: var(--gray); }
+.desk .updated { font-size: 0.78rem; color: #9ca3af; margin-top: 0.4rem; font-style: italic; }
+.activity-feed { list-style: none; }
+.activity-feed li { padding: 0.7rem 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.activity-feed time { color: #9ca3af; font-size: 0.82rem; margin-right: 0.6rem; font-style: italic; }
+.how { padding-left: 1.4rem; }
+.how li { margin-bottom: 0.6rem; }
+.note { color: var(--gray); font-size: 0.9rem; margin-top: 1rem; }
+.loading { color: #9ca3af; font-style: italic; }
+footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--line); color: #9ca3af; font-size: 0.85rem; }
+@media (max-width: 560px) { .intro h1 { font-size: 1.7rem; } }
