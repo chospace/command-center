@@ -1,10 +1,10 @@
 async function loadJSON(path) {
   const r = await fetch(path);
-  if (!r.ok) throw new Error("gagal memuat " + path);
+  if (!r.ok) throw new Error("failed to load " + path);
   return r.json();
 }
 const STATUS_ICON = { working: "⌨️", idle: "☕", offline: "💤" };
-const STATUS_LABEL = { working: "kerja", idle: "idle", offline: "offline" };
+const STATUS_LABEL = { working: "working", idle: "idle", offline: "offline" };
 
 function renderOffice(agents) {
   const floor = document.getElementById("office-floor");
@@ -14,11 +14,9 @@ function renderOffice(agents) {
     el.className = "desk";
     el.innerHTML = `
       <div class="avatar">${a.avatar || "🤖"}</div>
-      <div class="name">${a.nama}</div>
       <div class="role">${a.peran}</div>
-      <div class="status"><span class="dot ${a.status}"></span>${STATUS_ICON[a.status] || ""} ${STATUS_LABEL[a.status] || a.status}</div>
-      <div class="activity">${a.aktivitas}</div>
-      <div class="updated">update ${a.update_terakhir}</div>`;
+      <div class="name">${a.nama}</div>
+      <div class="status"><span class="dot ${a.status}"></span>${STATUS_ICON[a.status] || ""} ${STATUS_LABEL[a.status] || a.status}</div>`;
     floor.appendChild(el);
   });
 }
@@ -43,7 +41,7 @@ async function refresh() {
     renderFeed(feed);
   } catch (e) {
     document.getElementById("office-floor").innerHTML =
-      `<p class="loading">Gagal memuat data: ${e.message}</p>`;
+      `<p class="loading">Failed to load data: ${e.message}</p>`;
   }
 }
 refresh();
