@@ -26,10 +26,42 @@ function renderFeed(items) {
   feed.innerHTML = "";
   items.slice(0, 12).forEach(i => {
     const li = document.createElement("li");
-    li.innerHTML = `<time>${i.waktu}</time>${i.teks}`;
+    li.innerHTML = `<time>${i.waktu}</time><span class="classified">🔒 ${i.teks}</span>`;
     feed.appendChild(li);
   });
 }
+
+/* office clock (WIB) */
+function tickClock() {
+  const el = document.getElementById("office-clock");
+  if (!el) return;
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
+  el.textContent = now.toTimeString().slice(0, 8);
+}
+setInterval(tickClock, 1000);
+tickClock();
+
+/* fake terminal typing */
+(function terminal() {
+  const out = document.getElementById("term-output");
+  if (!out) return;
+  const lines = [
+    "waginem@agentspace:~$ status --all",
+    "✓ 3 agents online — all systems nominal",
+    "waginem@agentspace:~$ ",
+  ];
+  let li = 0, ci = 0, text = "";
+  function type() {
+    if (li >= lines.length) { setTimeout(() => { li = 0; text = ""; out.textContent = ""; type(); }, 6000); return; }
+    if (ci <= lines[li].length) {
+      text = lines.slice(0, li).join("\n") + (li ? "\n" : "") + lines[li].slice(0, ci);
+      out.textContent = text + "▊";
+      ci++;
+      setTimeout(type, lines[li].startsWith("waginem") ? 45 : 12);
+    } else { li++; ci = 0; setTimeout(type, 700); }
+  }
+  type();
+})();
 
 async function refresh() {
   try {
