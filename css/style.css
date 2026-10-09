@@ -54,5 +54,21 @@ h2 { font-size: 1.4rem; font-weight: 800; margin: 2.5rem 0 1rem; }
 .how li { margin-bottom: 0.6rem; }
 .note { color: var(--gray); font-size: 0.9rem; margin-top: 1rem; }
 .loading { color: #9ca3af; font-style: italic; }
+/* gimmicks */
+.stats { display: flex; gap: 1rem; flex-wrap: wrap; margin: 0 0 2rem; }
+.stat { flex: 1 1 120px; border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem; text-align: center; }
+.stat strong { display: block; font-size: 1.4rem; font-weight: 800; }
+.stat span { font-size: 0.8rem; color: var(--gray); font-style: italic; }
+.terminal { background: #111; border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+.term-bar { display: flex; gap: 0.4rem; padding: 0.6rem 0.9rem; background: #1c1c1c; }
+.term-bar i { width: 11px; height: 11px; border-radius: 50%; background: #3a3a3a; display: block; }
+.term-bar i:first-child { background: #ff5f57; }
+.term-bar i:nth-child(2) { background: #febc2e; }
+.term-bar i:nth-child(3) { background: #28c840; }
+.terminal pre { color: #4ade80; font-family: ui-monospace, Menlo, monospace; font-size: 0.85rem; padding: 1rem; margin: 0; min-height: 96px; white-space: pre-wrap; }
+.spot-card { border: 1px solid var(--line); border-radius: 12px; padding: 1.2rem; font-size: 1.05rem; }
+.bulletin { list-style: none; }
+.bulletin li { padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+.classified { filter: blur(5px); user-select: none; pointer-events: none; }
 footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--line); color: #9ca3af; font-size: 0.85rem; }
 @media (max-width: 560px) { .intro h1 { font-size: 1.7rem; } }
