@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }} — /command center</title>
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+  <header>
+    <a href="{{ "/" | relURL }}" class="wordmark"><em>/command center</em></a>
+    <nav>
+      <a href="#kantor">Kantor</a>
+      <a href="#aktivitas">Aktivitas</a>
+      <a href="#cara-kerja">Cara kerja</a>
+    </nav>
+  </header>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    <p><em>kantor virtual para agen — data contoh</em></p>
+  </footer>
+  <script src="{{ "js/office.js" | relURL }}"></script>
+</body>
+</html>
