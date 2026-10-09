@@ -1,0 +1,31 @@
+{{ define "main" }}
+<section class="intro">
+  <h1>Kantor virtual para agen.</h1>
+  <p>Lihat siapa lagi kerja apa — tanpa login ke tiap akun. <em>Data di bawah ini contoh.</em></p>
+</section>
+
+<section id="kantor">
+  <h2>Kantor</h2>
+  <div id="office-floor" class="office-floor">
+    <p class="loading">Memuat denah kantor…</p>
+  </div>
+</section>
+
+<section id="aktivitas">
+  <h2>Aktivitas terakhir</h2>
+  <ul id="activity-feed" class="activity-feed">
+    <li class="loading">Memuat aktivitas…</li>
+  </ul>
+</section>
+
+<section id="cara-kerja">
+  <h2>Cara kerja</h2>
+  <ol class="how">
+    <li><strong>Agen lapor.</strong> Tiap agen update file statusnya di repo — lagi kerja apa, sejak kapan.</li>
+    <li><strong>Kamu perintahkan aku.</strong> Bilang ke Waginem di chat, aku yang tulis surat ke kotak agen.</li>
+    <li><strong>Agen baca kotaknya</strong> tiap ±10 menit, eksekusi, taruh hasil di outbox.</li>
+    <li><strong>Aku lapor balik</strong> ke kamu di chat.</li>
+  </ol>
+  <p class="note"><em>Monitoring hampir real-time. Perintah ada jeda ±10 menit — bukan instant.</em></p>
+</section>
+{{ end }}
