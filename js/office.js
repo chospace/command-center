@@ -24,7 +24,7 @@ function renderOffice(agents) {
 function renderFeed(items) {
   const feed = document.getElementById("activity-feed");
   feed.innerHTML = "";
-  items.slice(0, 12).forEach(i => {
+  items.slice(0, 5).forEach(i => {
     const li = document.createElement("li");
     li.innerHTML = `<time>${i.waktu}</time><span class="classified">🔒 ${i.teks}</span>`;
     feed.appendChild(li);
