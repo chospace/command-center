@@ -65,12 +65,17 @@ tickClock();
 
 async function refresh() {
   try {
-    const [agents, feed] = await Promise.all([
+    const [agents, feed, stats] = await Promise.all([
       loadJSON("data/status.json"),
       loadJSON("data/activity.json"),
+      loadJSON("data/stats.json").catch(() => null),
     ]);
     renderOffice(agents);
     renderFeed(feed);
+    if (stats && typeof stats.tasks_done === "number") {
+      const el = document.getElementById("tasks-done");
+      if (el) el.textContent = stats.tasks_done.toLocaleString("en-US");
+    }
   } catch (e) {
     document.getElementById("office-floor").innerHTML =
       `<p class="loading">Failed to load data: ${e.message}</p>`;
