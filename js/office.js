@@ -78,3 +78,25 @@ async function refresh() {
 }
 refresh();
 setInterval(refresh, 30000);
+
+// theme toggle (dark/light), tersimpan di localStorage
+(function () {
+  var btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  function paint() {
+    var dark = document.documentElement.getAttribute("data-theme") === "dark";
+    btn.textContent = dark ? "☀️" : "🌙";
+  }
+  btn.addEventListener("click", function () {
+    var dark = document.documentElement.getAttribute("data-theme") === "dark";
+    if (dark) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("agentspace-theme", "light"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      try { localStorage.setItem("agentspace-theme", "dark"); } catch (e) {}
+    }
+    paint();
+  });
+  paint();
+})();
